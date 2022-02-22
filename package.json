@@ -1,0 +1,9 @@
+{
+	"name": "AlterExtracts",
+	"author": "Jiblet",
+	"version": "1.0.0",
+	"akiVersion": "2.2.*",
+	"license": "NCSA Open Source",
+	"dependencies": {},
+	"main": "package.js"
+}
