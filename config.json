@@ -1,0 +1,9 @@
+{
+	"Settings": {
+		"Logging": true,
+		"ScavCoopEnabled": true,
+		"PaidEnabled": true,
+		"Chance" : 66,
+		"ExfiltrationTime" : 8
+	}
+}

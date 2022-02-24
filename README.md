@@ -8,5 +8,13 @@ into normal extracts that require neither of those things.
 
 Because Coop extracts are completely broken by it being single player, and finding 5000 rubles just to use a paid extract is just daft busy work that is almost impossible on some maps (Woods!) BSG should allow item value bartering to use them but that'll never happen, so let's get these gone.
 
-These extracts are now 66% chance of being active and take 8 seconds to extract from.
-No config file needed here, if you desperately hate the chance percentage or exfil time, then change it in the code directly but they're pretty standard.
+By default these extracts are now 66% chance of being active and take 8 seconds to extract from. That is configurable in the config file.
+
+## Config
+```
+"Logging": true,            - Turns logging ot the console on and off. Default on.
+"ScavCoopEnabled": true,    - Enables the changing of Scav Cooperation extracts. Default true.
+"PaidEnabled": true,        - Enables the changing of Paid extracts. Default true.
+"Chance" : 66,              - Set the probability off the extract being open. Default 66 percent.
+"ExfiltrationTime" : 8      - Set the time taken to exit - Default 8 seconds.
+```
