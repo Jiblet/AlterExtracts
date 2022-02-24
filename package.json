@@ -1,7 +1,7 @@
 {
 	"name": "AlterExtracts",
 	"author": "Jiblet",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"akiVersion": "2.2.*",
 	"license": "NCSA Open Source",
 	"dependencies": {},
