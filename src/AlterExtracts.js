@@ -16,7 +16,8 @@ class AlterExtracts
             {
                 for (let exit in locations[l].base.exits)
                 {
-                    if (locations[l].base.exits[exit].PassageRequirement === "ScavCooperation" || "TransferItem")
+                    if (locations[l].base.exits[exit].PassageRequirement === "ScavCooperation" || locations[l].base.exits[exit].PassageRequirement === "TransferItem")
+                    Logger.info(`${this.mod} : Altering extract: ${exit} : ${locations[l].base.exits[exit].Name}`);
                     {
                         locations[l].base.exits[exit].Chance = "66";
                         locations[l].base.exits[exit].PlayersCount = "0";
