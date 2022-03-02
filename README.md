@@ -8,13 +8,13 @@ This mod can change all extracts that usually require you to either:
 
 Into normal extracts that require none of those things.
 
-The probability of the extract being active, and the time taken to extract from are configurable in the config file.
+The probability of the extract being active, and the time taken to extract from are configurable in the config file. See below.
 
-## Warnings
+## :warning: Warnings
 * Some types of extracts are not affected by default. You'll need to turn them on in the config.json.
 * May interfere with, or be interfered with by, other mods that modify extracts. Rename to zzzz-AlterExtracts if you need to.
 
-## Config
+## :memo: Config
 As of v1.3.0, this mod now operates on 4 types of extract:
 * "Scav_Coop_Extract" - Scav Co-op extracts, like Woods' factory gate
 * "Paid_Extract":     - Paid extracts, like the dorms vehicle extract on Customs
@@ -23,26 +23,26 @@ As of v1.3.0, this mod now operates on 4 types of extract:
 
 ```
 {
-	"Settings": {
-		"Logging": true,                - Turns logging ot the console on and off.
-		"ExtractTypesEnabled": {        - Enables the changing of each extract type as per the examples above.
-			"Scav_Coop_Extract": true,    
-			"Paid_Extract": true,           
-			"Backpack_Extract": false,  - Note that this is turned off by default as I don't like it, but you do you!    
-			"Alpine_Extract": false     - Note that this is turned off by default as I don't like it, but you do you!  
-		},
-		"ExfiltrationTimes": {          - Set the time taken to exit each extract type.
-			"Scav_Coop_Extract": 10,
-			"Paid_Extract": 20,
-			"Backpack_Extract": 10,
-			"Alpine_Extract": 8
-		},
-		"Chances": {                    - Set the probability of each extract type being open.
-			"Scav_Coop_Extract": 66,
-			"Paid_Extract": 66,
-			"Backpack_Extract": 100,
-			"Alpine_Extract": 100
-		}
-	}
+  "Settings": {
+    "Logging": true,             - Turns logging to the console on and off.
+    ExtractTypesEnabled": {      - Enables the changing of each extract type as per the examples above.
+      "Scav_Coop_Extract": true,    
+      "Paid_Extract": true,           
+      "Backpack_Extract": false, - Note that this is turned off by default as I don't like it, but you do you!    
+      "Alpine_Extract": false    - Note that this is turned off by default as I don't like it, but you do you!  
+    },
+    "ExfiltrationTimes": {       - Set the time taken to exit each extract type.
+      "Scav_Coop_Extract": 10,
+      "Paid_Extract": 20,
+      "Backpack_Extract": 10,
+      "Alpine_Extract": 8
+    },
+    "Chances": {                 - Set the probability of each extract type being open.
+      "Scav_Coop_Extract": 66,
+      "Paid_Extract": 66,
+      "Backpack_Extract": 100,
+      "Alpine_Extract": 100
+    }
+  }
 }
 ```
