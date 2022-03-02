@@ -1,24 +1,22 @@
 {
-	"Settings": {
-		"Logging": true,
-		"ExtractTypesEnabled": {
-			"Scav_Coop_Extract": true,
-			"Paid_Extract": true,
-			"Backpack_Extract": false,
-			"Alpine_Extract": false
-		},
-		"ExfiltrationTimes": {
-			"Scav_Coop_Extract": 10,
-			"Paid_Extract": 20,
-			"Backpack_Extract": 10,
-			"Alpine_Extract": 8
-		},
-		"Chances": {
-			"Scav_Coop_Extract": 66,
-			"Paid_Extract": 66,
-			"Backpack_Extract": 100,
-			"Alpine_Extract": 100
+	"Logging": true,
+	"ExtractTypesEnabled": {
+		"Scav_Coop_Extract": true,
+		"Paid_Extract": true,
+		"Backpack_Extract": false,
+		"Alpine_Extract": false
+	},
+	"ExfiltrationTimes": {
+		"Scav_Coop_Extract": 10,
+		"Paid_Extract": 20,
+		"Backpack_Extract": 10,
+		"Alpine_Extract": 8
+	},
+	"Chances": {
+		"Scav_Coop_Extract": 66,
+		"Paid_Extract": 66,
+		"Backpack_Extract": 100,
+		"Alpine_Extract": 100
 
-		}
 	}
 }

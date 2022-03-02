@@ -4,7 +4,8 @@ const mod = require("../package.json");
 
 const modName = mod.name;
 const version = mod.version;
-const logging = config.Settings.Logging;
+const logging = config.Logging;
+const locations = DatabaseServer.tables.locations;
 
 class AlterExtracts {
     constructor() {
@@ -13,32 +14,22 @@ class AlterExtracts {
         ModLoader.onLoad[this.mod] = this.load.bind(this);
     }
     load() {
-        const locations = DatabaseServer.tables.locations;
+        for (let l in locations) {
+            if (l !== "base") {
+                for (let exit in locations[l].base.exits) {
+                    let ExtractType = locations[l].base.exits[exit].PassageRequirement
 
-        if (config.Settings.ExtractTypesEnabled.Scav_Coop_Extract) {
-            for (let l in locations) {
-                if (l !== "base") {
-                    for (let exit in locations[l].base.exits) {
-                        let ExtractType = locations[l].base.exits[exit].PassageRequirement
+                    if (config.ExtractTypesEnabled.Scav_Coop_Extract && ExtractType === "ScavCooperation") {
+                        alterExtract(l, exit, config.Chances.Scav_Coop_Extract, config.ExfiltrationTimes.Scav_Coop_Extract);
 
-                        if (config.Settings.ExtractTypesEnabled.Scav_Coop_Extract &&
-                            ExtractType === "ScavCooperation") {
-                            alterExtract(l, exit, config.Settings.Chances.Scav_Coop_Extract, config.Settings.ExfiltrationTimes.Scav_Coop_Extract);
+                    } else if (config.ExtractTypesEnabled.Paid_Extract && ExtractType === "TransferItem") {
+                        alterExtract(l, exit, config.Chances.Paid_Extract, config.ExfiltrationTimes.Paid_Extract);
 
-                        } else if (config.Settings.ExtractTypesEnabled.Paid_Extract &&
-                            ExtractType === "TransferItem") {
-                            alterExtract(l, exit, config.Settings.Chances.Paid_Extract, config.Settings.ExfiltrationTimes.Paid_Extract);
+                    } else if ((config.ExtractTypesEnabled.Backpack_Extract) && ExtractType === "Empty" && locations[l].base.exits[exit].RequiredSlot === "Backpack") {
+                        alterExtract(l, exit, config.Chances.Backpack_Extract, config.ExfiltrationTimes.Backpack_Extract);
 
-                        } else if ((config.Settings.ExtractTypesEnabled.Backpack_Extract) &&
-                            ExtractType === "Empty" &&
-                            locations[l].base.exits[exit].RequiredSlot === "Backpack") {
-                            alterExtract(l, exit, config.Settings.Chances.Backpack_Extract, config.Settings.ExfiltrationTimes.Backpack_Extract);
-
-                        } else if ((config.Settings.ExtractTypesEnabled.Alpine_Extract) &&
-                            ExtractType === "Reference" &&
-                            locations[l].base.exits[exit].Id === "Alpinist") {
-                            alterExtract(l, exit, config.Settings.Chances.Alpine_Extract, config.Settings.ExfiltrationTimes.Alpine_Extract);
-                        }
+                    } else if ((config.ExtractTypesEnabled.Alpine_Extract) && ExtractType === "Reference" && locations[l].base.exits[exit].Id === "Alpinist") {
+                        alterExtract(l, exit, config.Chances.Alpine_Extract, config.ExfiltrationTimes.Alpine_Extract);
                     }
                 }
             }
