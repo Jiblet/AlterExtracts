@@ -21,7 +21,7 @@ class AlterExtracts {
                     for (let exit in locations[l].base.exits) {
                         if (locations[l].base.exits[exit].PassageRequirement === "ScavCooperation") {
                             if (logging) {
-                                Logger.log(`[${modName} : ${version}] : Altering SCAV COOP Extract: ${l} : ${locations[l].base.exits[exit].Name}, Chance: ${config.Settings.Chance}, Time: ${config.Settings.ExfiltrationTime}`, "green");
+                                Logger.log(`[${modName} : ${version}] : Altering Scav Co-op Extract: ${l} : ${locations[l].base.exits[exit].Name}, Chance: ${config.Settings.Chance}, Time: ${config.Settings.ExfiltrationTime}`, "green");
                             }
                             locations[l].base.exits[exit].Chance = config.Settings.Chance;
                             locations[l].base.exits[exit].PlayersCount = "0";
@@ -43,7 +43,7 @@ class AlterExtracts {
                     for (let exit in locations[l].base.exits) {
                         if (locations[l].base.exits[exit].PassageRequirement === "TransferItem") {
                             if (logging) {
-                                Logger.log(`[${modName} : ${version}] : Altering PAID Extract: ${l} : ${locations[l].base.exits[exit].Name}, Chance: ${config.Settings.Chance}, Time: ${config.Settings.ExfiltrationTime}`, "green");
+                                Logger.log(`[${modName} : ${version}] : Altering Paid Extract: ${l} : ${locations[l].base.exits[exit].Name}, Chance: ${config.Settings.Chance}, Time: ${config.Settings.ExfiltrationTime}`, "green");
                             }
                             locations[l].base.exits[exit].Chance = config.Settings.Chance;
                             locations[l].base.exits[exit].PlayersCount = "0";
@@ -58,15 +58,50 @@ class AlterExtracts {
                 }
             }
         }
+        if (config.Settings.BackpackEnabled) {
+            for (let l in locations) {
+                if (l !== "base") {
+                    for (let exit in locations[l].base.exits) {
+                        if (locations[l].base.exits[exit].PassageRequirement === "Empty" && locations[l].base.exits[exit].RequiredSlot === "Backpack") {
+                            if (logging) {
+                                Logger.log(`[${modName} : ${version}] : Altering Backpack-less Extract: ${l} : ${locations[l].base.exits[exit].Name}, Chance: ${locations[l].base.exits[exit].Chance}, Time: ${locations[l].base.exits[exit].ExfiltrationTime}`, "green");
+                            }
+                            //locations[l].base.exits[exit].Chance = config.Settings.Chance; //Leave chance alone for these extracts
+                            locations[l].base.exits[exit].PlayersCount = "0";
+                            // locations[l].base.exits[exit].ExfiltrationTime = config.Settings.ExfiltrationTime;
+                            locations[l].base.exits[exit].PassageRequirement = "None";
+                            locations[l].base.exits[exit].ExfiltrationType = "Individual";
+                            locations[l].base.exits[exit].Id = "";
+                            locations[l].base.exits[exit].RequirementTip = "";
+                            locations[l].base.exits[exit].Count = "0";
+                        }
+                    }
+                }
+            }
+        }
+
+        if (config.Settings.AlpineEnabled) {
+            for (let l in locations) {
+                if (l !== "base") {
+                    for (let exit in locations[l].base.exits) {
+                        if (locations[l].base.exits[exit].PassageRequirement === "Reference" && locations[l].base.exits[exit].Id === "Alpinist") {
+                            if (logging) {
+                                Logger.log(`[${modName} : ${version}] : Altering Red Rebel/Paracord Extract: ${l} : ${locations[l].base.exits[exit].Name}, Chance: ${locations[l].base.exits[exit].Chance}, Time: ${locations[l].base.exits[exit].ExfiltrationTime}`, "green");
+                            }
+                            //locations[l].base.exits[exit].Chance = config.Settings.Chance; //Leave chance alone for these extracts
+                            locations[l].base.exits[exit].PlayersCount = "0";
+                            // locations[l].base.exits[exit].ExfiltrationTime = config.Settings.ExfiltrationTime;
+                            locations[l].base.exits[exit].PassageRequirement = "None";
+                            locations[l].base.exits[exit].ExfiltrationType = "Individual";
+                            locations[l].base.exits[exit].Id = "";
+                            locations[l].base.exits[exit].RequirementTip = "";
+                            locations[l].base.exits[exit].Count = "0";
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }
 module.exports.Mod = AlterExtracts;
-
-
-/**
- * Add:
- * 1. Config debug logging
- * 2. Config extract time
- * 3. Config config enable coop / enable paid
- * 4. Config chance
- */

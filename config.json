@@ -3,6 +3,8 @@
 		"Logging": true,
 		"ScavCoopEnabled": true,
 		"PaidEnabled": true,
+		"BackpackEnabled": true,
+		"AlpineEnabled": true,
 		"Chance" : 66,
 		"ExfiltrationTime" : 8
 	}
