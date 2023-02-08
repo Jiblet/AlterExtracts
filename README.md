@@ -21,6 +21,8 @@ As of v1.3.0, this mod now operates on 4 types of extract:
 * "Backpack_Extract"  - Extracts that need you to remove your backpack, like Interchange's hole in fence
 * "Alpine_Extract"    - Extracts that need a Red Rebel and paracord, like Reserve's cliff descent
 
+Enabling each extract type will override that type's requirements, making it a normal extraction point that uses the extraction time and chance (probability the extract will be active) from the config file. Setting it to false means this mod will not alter that extract type at all.
+
 ```
 {
   "Settings": {
