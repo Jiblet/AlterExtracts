@@ -17,7 +17,7 @@ class Mod implements IPostDBLoadMod, IPreAkiLoadMod {
 
     constructor() {
         this.modName = "AlterExtracts"; // Set name and version of the mod so we can log it to console later
-        this.modVersion = "2.0.1";
+        this.modVersion = "2.0.2";
     }
 
     // Code added here will load BEFORE the server has started loading
